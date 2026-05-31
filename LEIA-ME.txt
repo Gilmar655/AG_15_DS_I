@@ -1,0 +1,14 @@
+INSTRUÇÕES PARA ENTREGA
+
+1. Abra a pasta site_EcoTech_Solar.
+2. Execute o arquivo index.html no navegador.
+3. Confira se as imagens aparecem corretamente.
+4. Para enviar no fichário, compacte a pasta completa ou envie este arquivo ZIP.
+5. Nome sugerido do arquivo final: Gilmar_Paiva_Campos_Ag15_DS_I.zip
+
+Conteúdo da pasta:
+- index.html
+- pasta imagens
+- captura_codigo.png
+- captura_pagina_navegador.png
+- registro_interacoes_IA.txt

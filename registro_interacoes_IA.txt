@@ -1,0 +1,39 @@
+REGISTRO DE INTERAÇÕES COM A IA
+Agenda 15 - Desenvolvimento de Sistemas I
+Aluno: Gilmar Paiva Campos
+Arquivo: Gilmar_Paiva_Campos_Ag15_DS_I
+
+1. Solicitação feita à IA
+Solicitei apoio para interpretar a atividade do Fichário da Agenda 15 e criar uma página web em arquivo único HTML, usando o framework W3.CSS, para uma empresa fictícia.
+
+2. Tema sugerido
+A IA sugeriu a empresa fictícia EcoTech Solar, voltada para energia solar fotovoltaica, sustentabilidade e tecnologia.
+
+3. Psicologia das cores
+A IA indicou o uso de verde para sustentabilidade e confiança, amarelo para energia solar e otimismo, azul para tecnologia e segurança, branco/cinza claro para organização visual.
+
+4. Conteúdo criado
+Foram elaboradas as seções HOME, PARCEIROS, FAQ e CONTATO.
+A página contém nome, logotipo, slogan, história, missão, visão, valores, imagens, logotipos de parceiros, perguntas frequentes, e rodapé com e-mail, telefone e redes sociais.
+
+5. Consultoria técnica da IA
+A IA orientou o uso de:
+- Estrutura HTML5;
+- Sidebar com ícones;
+- Framework W3.CSS;
+- CSS interno para personalização;
+- JavaScript simples para abrir e fechar perguntas do FAQ;
+- Comentários no código para facilitar a compreensão;
+- Organização de imagens dentro da pasta imagens.
+
+6. Possíveis erros verificados
+A IA ajudou a revisar:
+- Fechamento correto das tags HTML;
+- Caminhos das imagens;
+- Uso do atributo alt nas imagens;
+- Responsividade para telas menores;
+- Clareza dos comentários no código;
+- Presença dos itens obrigatórios HOME, PARCEIROS e FAQ.
+
+7. Reflexão do aluno
+O uso da IA auxiliou no planejamento, na organização do conteúdo e na revisão do código. A ferramenta foi usada como consultora técnica, mas o entendimento da estrutura HTML, do framework W3.CSS e do funcionamento da página foi acompanhado durante o processo.
