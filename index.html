@@ -3,293 +3,471 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoTech Solar | Energia limpa e inteligente</title>
+    <title>EcoTech Solar | Projetos solares para residências e empresas</title>
 
-    <!-- Framework W3.CSS solicitado na atividade -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-
-    <!-- Biblioteca de ícones usada no menu lateral e rodapé -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-        /* Estilos complementares criados para personalizar a página */
         :root {
             --verde-principal: #008556;
-            --verde-escuro: #005f3d;
+            --verde-secundario: #0b6b4b;
+            --verde-claro: #eaf7ef;
+            --azul-apoio: #0555fa;
             --amarelo-solar: #ffc933;
-            --azul-tecnico: #157EA3;
-            --cinza-claro: #f5f7f6;
+            --cinza-fundo: #f4f7f8;
+            --cinza-texto: #2d3a40;
+            --branco: #ffffff;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
+        html { scroll-behavior: smooth; }
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: var(--cinza-claro);
+            background: var(--cinza-fundo);
+            color: var(--cinza-texto);
         }
 
-        .sidebar-logo {
-            width: 85px;
-            border-radius: 16px;
-            margin-top: 20px;
+        .w3-sidebar {
+            width: 235px;
+        }
+
+        .logo-menu {
+            width: 86px;
+            border-radius: 18px;
+            margin-top: 18px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
         }
 
         .menu-link {
-            transition: 0.3s;
+            font-weight: bold;
+            transition: .3s;
+            border-left: 4px solid transparent;
         }
 
         .menu-link:hover {
-            background-color: var(--amarelo-solar) !important;
-            color: #111 !important;
+            background: #f0faf5 !important;
+            color: var(--verde-principal) !important;
+            border-left-color: var(--amarelo-solar);
+        }
+
+        .top-header {
+            background: var(--verde-principal);
+            color: white;
         }
 
         .hero {
-            background: linear-gradient(rgba(0, 95, 61, 0.82), rgba(0, 133, 86, 0.72)), url("imagens/energia_solar_home.png");
-            background-position: center;
-            background-size: cover;
-            min-height: 470px;
+            background: linear-gradient(120deg, rgba(0, 55, 37, 0.84), rgba(0, 133, 86, 0.72)), url('imagens/banner_institucional_ecotech.png') center/cover no-repeat;
+            min-height: 540px;
             display: flex;
             align-items: center;
             color: white;
         }
 
+        .hero-box {
+            background: rgba(255,255,255,0.10);
+            backdrop-filter: blur(4px);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+        }
+
+        .hero-highlight {
+            border-left: 5px solid var(--amarelo-solar);
+            padding-left: 16px;
+            margin-top: 18px;
+        }
+
         .section-title {
-            color: var(--verde-escuro);
-            font-weight: bold;
+            color: var(--verde-secundario);
+            font-weight: 700;
             border-left: 8px solid var(--amarelo-solar);
             padding-left: 14px;
+            margin-bottom: 12px;
         }
 
-        .value-card {
-            min-height: 190px;
+        .section-subtitle {
+            max-width: 920px;
+            line-height: 1.7;
         }
 
-        .partner-logo {
+        .info-card, .partner-card, .gallery-card, .contact-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+        }
+
+        .info-card {
+            min-height: 100%;
+        }
+
+        .badge-soft {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.18);
+            color: white;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .gallery-card img,
+        .partner-card img {
             width: 100%;
+            display: block;
+        }
+
+        .partner-card img {
+            border-bottom: 1px solid #ebebeb;
+        }
+
+        .partner-card:hover,
+        .gallery-card:hover,
+        .info-card:hover {
+            transform: translateY(-4px);
+            transition: 0.3s ease;
+        }
+
+        .highlight-strip {
+            background: linear-gradient(90deg, #0a8b57, #157ea3);
+            color: white;
+            border-radius: 22px;
+        }
+
+        .faq-button {
             border-radius: 14px;
-            border: 1px solid #ddd;
-            transition: 0.3s;
+            margin-top: 12px;
+            font-weight: bold;
         }
 
-        .partner-logo:hover {
-            transform: scale(1.03);
+        .faq-answer {
+            border-radius: 0 0 14px 14px;
+            border: 1px solid #dde5df;
+            border-top: none;
+            background: white;
         }
 
-        footer a {
+        .footer-links a {
             text-decoration: none;
             margin-right: 14px;
         }
 
-        .top-header {
-            background-color: var(--verde-principal);
-            color: white;
+        .small-tag {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--verde-principal);
+            font-weight: bold;
+        }
+
+        @media (max-width: 992px) {
+            .w3-main { margin-left: 0 !important; }
+            .hero { min-height: 480px; }
         }
 
         @media (max-width: 600px) {
             .hero {
-                min-height: 380px;
                 text-align: center;
+                min-height: 460px;
             }
-
-            .hero h1 {
-                font-size: 36px;
-            }
+            .hero h1 { font-size: 42px !important; }
+            .hero-box { padding: 20px; }
         }
     </style>
 </head>
-
 <body>
 
-<!-- SIDEBAR: itens obrigatórios HOME, PARCEIROS e FAQ -->
-<nav class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left w3-white" style="width:230px;" id="menuLateral">
-    <div class="w3-center">
-        <img src="imagens/logo_ecotech_solar.png" class="sidebar-logo" alt="Logotipo da empresa EcoTech Solar">
-        <h3 class="w3-text-green"><b>EcoTech Solar</b></h3>
-        <p class="w3-small">Energia limpa e inteligente</p>
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-card w3-white" id="menuLateral">
+    <div class="w3-center w3-padding">
+        <img src="imagens/logo_ecotech_solar.png" class="logo-menu" alt="Logotipo da EcoTech Solar">
+        <h3 class="w3-text-green w3-margin-bottom"><b>EcoTech Solar</b></h3>
+        <p class="w3-small w3-text-grey w3-margin-top">Projetos solares para residências e empresas</p>
     </div>
 
-    <a href="#home" class="w3-bar-item w3-button menu-link">
-        <i class="fa-solid fa-house"></i> HOME
-    </a>
-    <a href="#parceiros" class="w3-bar-item w3-button menu-link">
-        <i class="fa-solid fa-handshake"></i> PARCEIROS
-    </a>
-    <a href="#faq" class="w3-bar-item w3-button menu-link">
-        <i class="fa-solid fa-circle-question"></i> FAQ
-    </a>
-    <a href="#contato" class="w3-bar-item w3-button menu-link">
-        <i class="fa-solid fa-envelope"></i> CONTATO
-    </a>
+    <a href="#home" class="w3-bar-item w3-button menu-link"><i class="fa-solid fa-house"></i> HOME</a>
+    <a href="#sobre" class="w3-bar-item w3-button menu-link"><i class="fa-solid fa-building"></i> SOBRE</a>
+    <a href="#galeria" class="w3-bar-item w3-button menu-link"><i class="fa-solid fa-image"></i> GALERIA</a>
+    <a href="#parceiros" class="w3-bar-item w3-button menu-link"><i class="fa-solid fa-handshake"></i> PARCEIROS</a>
+    <a href="#faq" class="w3-bar-item w3-button menu-link"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+    <a href="#contato" class="w3-bar-item w3-button menu-link"><i class="fa-solid fa-envelope"></i> CONTATO</a>
 </nav>
 
-<!-- Botão para abrir menu no celular -->
 <div class="w3-top w3-hide-large top-header">
     <button class="w3-button w3-xlarge" onclick="abrirMenu()">☰</button>
-    <span class="w3-large">EcoTech Solar</span>
+    <span class="w3-large"><b>EcoTech Solar</b></span>
 </div>
 
-<!-- Overlay mobile -->
 <div class="w3-overlay w3-hide-large" onclick="fecharMenu()" style="cursor:pointer" id="overlayMenu"></div>
 
-<!-- Conteúdo principal -->
-<main class="w3-main" style="margin-left:230px">
+<main class="w3-main" style="margin-left:235px">
 
-    <!-- HOME -->
     <section id="home" class="hero w3-container w3-padding-64">
-        <div class="w3-content">
-            <h1 class="w3-jumbo w3-animate-top"><b>EcoTech Solar</b></h1>
-            <h2>Energia limpa para um futuro inteligente</h2>
-            <p class="w3-xlarge">
-                Projetos de energia solar fotovoltaica para residências, comércios e pequenas empresas,
-                com foco em economia, sustentabilidade e tecnologia.
+        <div class="w3-content" style="max-width:1200px; width:100%;">
+            <div class="w3-row-padding w3-display-container">
+                <div class="w3-col l7 m12 s12">
+                    <div class="hero-box">
+                        <span class="badge-soft">Empresa fictícia desenvolvida para a Agenda 15</span>
+                        <h1 class="w3-jumbo w3-margin-bottom"><b>EcoTech Solar</b></h1>
+                        <h2 class="w3-xxlarge w3-margin-top">Energia limpa para um futuro melhor</h2>
+                        <p class="w3-large w3-margin-top">
+                            A EcoTech Solar é uma empresa fictícia especializada em projetos de energia solar para residências,
+                            condomínios, comércios e pequenas empresas. Nossa proposta é unir sustentabilidade, economia e tecnologia
+                            para oferecer soluções modernas e eficientes.
+                        </p>
+
+                        <div class="hero-highlight">
+                            <p class="w3-large w3-margin-0"><b>Slogan:</b> Projetos solares para residências e empresas.</p>
+                            <p class="w3-margin-top">Atendimento consultivo, instalação planejada, monitoramento inteligente e foco em resultados sustentáveis.</p>
+                        </div>
+
+                        <div class="w3-margin-top">
+                            <a href="#parceiros" class="w3-button w3-amber w3-round-large w3-padding-large w3-margin-right w3-margin-bottom">
+                                Ver parceiros
+                            </a>
+                            <a href="#faq" class="w3-button w3-white w3-text-green w3-round-large w3-padding-large w3-margin-bottom">
+                                Ler FAQ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-col l5 m12 s12 w3-padding">
+                    <div class="w3-card w3-white w3-round-xxlarge w3-padding-large" style="margin-top:16px;">
+                        <p class="small-tag">Destaques da página</p>
+                        <p><i class="fa-solid fa-solar-panel w3-text-green"></i> Projetos fotovoltaicos completos</p>
+                        <p><i class="fa-solid fa-bolt w3-text-amber"></i> Redução de custos com energia</p>
+                        <p><i class="fa-solid fa-leaf w3-text-green"></i> Compromisso com sustentabilidade</p>
+                        <p><i class="fa-solid fa-chart-line w3-text-blue"></i> Monitoramento inteligente da geração</p>
+                        <p><i class="fa-solid fa-handshake-angle w3-text-green"></i> Rede de parceiros estratégicos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="w3-container w3-padding-64">
+        <div class="w3-content" style="max-width:1200px;">
+            <h2 class="section-title">História, missão e valores</h2>
+            <p class="section-subtitle w3-large">
+                A EcoTech Solar nasceu com a ideia de democratizar o acesso à energia solar, apresentando uma solução limpa,
+                econômica e tecnologicamente avançada. A empresa fictícia foi pensada para atender clientes que desejam reduzir
+                a conta de energia, valorizar seus imóveis e contribuir para a preservação do meio ambiente.
             </p>
-            <a href="#faq" class="w3-button w3-round-large w3-large w3-amber w3-padding-large">
-                Saiba mais
-            </a>
-        </div>
-    </section>
 
-    <section class="w3-container w3-padding-64">
-        <h2 class="section-title">História da empresa</h2>
-        <p class="w3-large">
-            A EcoTech Solar é uma empresa fictícia criada para representar uma organização moderna
-            do setor de energia renovável. Sua história começou com o objetivo de tornar a energia solar
-            mais acessível, segura e eficiente para clientes residenciais e comerciais.
-        </p>
-
-        <div class="w3-row-padding w3-margin-top">
-            <div class="w3-third w3-margin-bottom">
-                <div class="w3-card w3-white w3-round-large w3-padding value-card">
-                    <h3><i class="fa-solid fa-bullseye w3-text-green"></i> Missão</h3>
-                    <p>Oferecer soluções solares inteligentes, reduzindo custos e incentivando o uso consciente da energia.</p>
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-third w3-margin-bottom">
+                    <div class="w3-card w3-white w3-padding-large info-card">
+                        <h3><i class="fa-solid fa-bullseye w3-text-green"></i> Missão</h3>
+                        <p>Oferecer soluções solares inteligentes e acessíveis, promovendo economia, eficiência energética e impacto ambiental positivo.</p>
+                    </div>
+                </div>
+                <div class="w3-third w3-margin-bottom">
+                    <div class="w3-card w3-white w3-padding-large info-card">
+                        <h3><i class="fa-solid fa-eye w3-text-blue"></i> Visão</h3>
+                        <p>Ser referência em inovação, confiança e sustentabilidade no segmento de energia solar para residências e empresas.</p>
+                    </div>
+                </div>
+                <div class="w3-third w3-margin-bottom">
+                    <div class="w3-card w3-white w3-padding-large info-card">
+                        <h3><i class="fa-solid fa-heart w3-text-red"></i> Valores</h3>
+                        <p>Sustentabilidade, ética, segurança, qualidade, transparência, tecnologia e atendimento humanizado.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="w3-third w3-margin-bottom">
-                <div class="w3-card w3-white w3-round-large w3-padding value-card">
-                    <h3><i class="fa-solid fa-eye w3-text-blue"></i> Visão</h3>
-                    <p>Ser reconhecida como referência em tecnologia limpa, inovação e atendimento ao cliente.</p>
+            <div class="w3-panel w3-pale-green w3-leftbar w3-border-green w3-round-large w3-padding-large">
+                <p class="w3-large w3-margin-0"><b>Informação importante:</b> além da instalação, a EcoTech Solar oferece acompanhamento de desempenho, orientação sobre economia de energia e apoio técnico por meio da parceira de monitoramento IoT.</p>
+            </div>
+
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-half w3-margin-bottom">
+                    <div class="w3-card w3-white w3-padding-large info-card">
+                        <h3><i class="fa-solid fa-gears w3-text-green"></i> Como a empresa atua</h3>
+                        <ul class="w3-ul">
+                            <li>Análise de perfil de consumo do cliente</li>
+                            <li>Projeto técnico personalizado</li>
+                            <li>Instalação de módulos e equipamentos</li>
+                            <li>Monitoramento da geração de energia</li>
+                            <li>Suporte pós-instalação e manutenção preventiva</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w3-half w3-margin-bottom">
+                    <div class="highlight-strip w3-padding-large">
+                        <h3><i class="fa-solid fa-star"></i> Diferenciais</h3>
+                        <p>Projetos com foco em economia de longo prazo, parceria com instituições financeiras verdes, apoio à logística reversa e uso de tecnologia para monitoramento inteligente.</p>
+                        <p class="w3-margin-bottom-0">A EcoTech Solar acredita que inovação e sustentabilidade devem caminhar juntas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="w3-container w3-padding-64 w3-white">
+        <div class="w3-content" style="max-width:1200px;">
+            <h2 class="section-title">Galeria visual da empresa</h2>
+            <p class="section-subtitle w3-large">
+                Abaixo estão as imagens institucionais da EcoTech Solar utilizadas para compor o site: logotipo, arte inicial do projeto,
+                ilustração do campo solar e banner corporativo atualizado.
+            </p>
+
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-half w3-margin-bottom">
+                    <div class="w3-card w3-white gallery-card">
+                        <img src="imagens/logo_ecotech_solar.png" alt="Logotipo institucional da EcoTech Solar">
+                        <div class="w3-padding-large">
+                            <h3>Logotipo principal</h3>
+                            <p>Identidade visual da empresa fictícia, com elementos que remetem à energia solar e à sustentabilidade.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-half w3-margin-bottom">
+                    <div class="w3-card w3-white gallery-card">
+                        <img src="imagens/energia_solar_home.png" alt="Imagem ilustrativa de painéis solares da EcoTech Solar">
+                        <div class="w3-padding-large">
+                            <h3>Imagem inicial do projeto</h3>
+                            <p>Arte utilizada como referência para representar o campo de geração solar e o foco em energia limpa.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="w3-third w3-margin-bottom">
-                <div class="w3-card w3-white w3-round-large w3-padding value-card">
-                    <h3><i class="fa-solid fa-leaf w3-text-green"></i> Valores</h3>
-                    <p>Sustentabilidade, ética, segurança, inovação, transparência e responsabilidade ambiental.</p>
+            <div class="w3-row-padding">
+                <div class="w3-col l12 m12 s12 w3-margin-bottom">
+                    <div class="w3-card w3-white gallery-card">
+                        <img src="imagens/banner_institucional_ecotech.png" alt="Banner institucional atualizado da EcoTech Solar">
+                        <div class="w3-padding-large">
+                            <h3>Banner institucional atualizado</h3>
+                            <p>Peça visual principal do site, reunindo o posicionamento da marca, o slogan “Energia limpa para um futuro melhor” e a apresentação dos parceiros estratégicos.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="w3-panel w3-pale-green w3-leftbar w3-border-green w3-round-large">
-            <p><b>Destaque:</b> a empresa utiliza tecnologia de monitoramento para acompanhar a geração de energia
-            e orientar seus clientes sobre economia e eficiência energética.</p>
+    <section id="parceiros" class="w3-container w3-padding-64">
+        <div class="w3-content" style="max-width:1200px;">
+            <h2 class="section-title">Parceiros estratégicos</h2>
+            <p class="section-subtitle w3-large">
+                Para oferecer uma solução completa, a EcoTech Solar conta com parceiros fictícios que fortalecem o ecossistema do projeto: construção sustentável, financiamento verde, logística reversa e monitoramento IoT.
+            </p>
+
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-half w3-margin-bottom">
+                    <div class="w3-card w3-white partner-card">
+                        <img src="imagens/parceiro_casa_plus_atualizado.png" alt="Banner do parceiro Casa+">
+                        <div class="w3-padding-large">
+                            <h3>Casa+</h3>
+                            <p><b>Área de atuação:</b> construção sustentável.</p>
+                            <p>Responsável por apoiar projetos de adaptação estrutural, integração dos módulos solares ao imóvel e soluções sustentáveis para edificações.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-half w3-margin-bottom">
+                    <div class="w3-card w3-white partner-card">
+                        <img src="imagens/parceiro_greenbank_atualizado.png" alt="Banner do parceiro GreenBank">
+                        <div class="w3-padding-large">
+                            <h3>GreenBank</h3>
+                            <p><b>Área de atuação:</b> financiamento verde.</p>
+                            <p>Parceiro financeiro que oferece condições especiais para viabilizar a implantação de sistemas solares residenciais e empresariais.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-half w3-margin-bottom">
+                    <div class="w3-card w3-white partner-card">
+                        <img src="imagens/parceiro_reciclasp_atualizado.png" alt="Banner do parceiro ReciclaSP">
+                        <div class="w3-padding-large">
+                            <h3>ReciclaSP</h3>
+                            <p><b>Área de atuação:</b> logística reversa.</p>
+                            <p>Atua na destinação correta de embalagens, componentes e equipamentos, reforçando o compromisso ambiental da EcoTech Solar.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-half w3-margin-bottom">
+                    <div class="w3-card w3-white partner-card">
+                        <img src="imagens/parceiro_tecdata_atualizado.png" alt="Banner do parceiro TecData">
+                        <div class="w3-padding-large">
+                            <h3>TecData</h3>
+                            <p><b>Área de atuação:</b> monitoramento IoT.</p>
+                            <p>Disponibiliza tecnologia para acompanhamento remoto da performance do sistema, análise de dados e geração de relatórios inteligentes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- PARCEIROS -->
-    <section id="parceiros" class="w3-container w3-padding-64 w3-white">
-        <h2 class="section-title">Parceiros</h2>
-        <p class="w3-large">
-            A EcoTech Solar conta com parceiros fictícios para oferecer soluções completas em financiamento,
-            construção, monitoramento digital e descarte correto de equipamentos.
-        </p>
+    <section id="faq" class="w3-container w3-padding-64 w3-white">
+        <div class="w3-content" style="max-width:1200px;">
+            <h2 class="section-title">Perguntas frequentes</h2>
+            <p class="section-subtitle w3-large">Perguntas e respostas que ajudam o cliente a entender como funciona o processo de contratação e instalação de energia solar.</p>
 
-        <div class="w3-row-padding w3-margin-top">
-            <div class="w3-quarter w3-margin-bottom">
-                <img src="imagens/parceiro_greenbank.png" class="partner-logo" alt="Logotipo da parceira GreenBank">
-            </div>
-            <div class="w3-quarter w3-margin-bottom">
-                <img src="imagens/parceiro_casa.png" class="partner-logo" alt="Logotipo da parceira Casa+">
-            </div>
-            <div class="w3-quarter w3-margin-bottom">
-                <img src="imagens/parceiro_tecdata.png" class="partner-logo" alt="Logotipo da parceira TecData">
-            </div>
-            <div class="w3-quarter w3-margin-bottom">
-                <img src="imagens/parceiro_reciclasp.png" class="partner-logo" alt="Logotipo da parceira ReciclaSP">
-            </div>
+            <button onclick="abrirFAQ('faq1')" class="w3-button w3-block w3-left-align w3-green faq-button">1. A energia solar funciona em dias nublados?</button>
+            <div id="faq1" class="w3-hide w3-container faq-answer w3-padding"><p>Sim. A produção diminui em relação a dias totalmente ensolarados, mas os painéis continuam gerando energia com a luminosidade disponível.</p></div>
+
+            <button onclick="abrirFAQ('faq2')" class="w3-button w3-block w3-left-align w3-green faq-button">2. Quais são as etapas de instalação de um sistema solar?</button>
+            <div id="faq2" class="w3-hide w3-container faq-answer w3-padding"><p>As etapas incluem levantamento do consumo, elaboração do projeto, análise técnica, instalação dos equipamentos, testes e ativação do sistema.</p></div>
+
+            <button onclick="abrirFAQ('faq3')" class="w3-button w3-block w3-left-align w3-green faq-button">3. A empresa oferece suporte após a instalação?</button>
+            <div id="faq3" class="w3-hide w3-container faq-answer w3-padding"><p>Sim. A EcoTech Solar oferece orientação de uso, monitoramento da geração e recomendações de manutenção preventiva.</p></div>
+
+            <button onclick="abrirFAQ('faq4')" class="w3-button w3-block w3-left-align w3-green faq-button">4. Como o GreenBank ajuda o cliente?</button>
+            <div id="faq4" class="w3-hide w3-container faq-answer w3-padding"><p>O GreenBank oferece linhas de financiamento verde para facilitar o investimento em energia solar com planejamento financeiro mais acessível.</p></div>
+
+            <button onclick="abrirFAQ('faq5')" class="w3-button w3-block w3-left-align w3-green faq-button">5. Qual a importância da logística reversa no projeto?</button>
+            <div id="faq5" class="w3-hide w3-container faq-answer w3-padding"><p>A logística reversa garante o descarte e reaproveitamento correto de materiais, contribuindo para a sustentabilidade do ciclo completo do projeto.</p></div>
+
+            <button onclick="abrirFAQ('faq6')" class="w3-button w3-block w3-left-align w3-green faq-button">6. O que a TecData monitora?</button>
+            <div id="faq6" class="w3-hide w3-container faq-answer w3-padding"><p>A TecData acompanha dados de geração, eficiência do sistema, alertas de desempenho e relatórios de consumo por meio de monitoramento IoT.</p></div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="w3-container w3-padding-64">
-        <h2 class="section-title">Perguntas frequentes</h2>
-
-        <button onclick="abrirFAQ('faq1')" class="w3-button w3-block w3-left-align w3-green w3-margin-top">
-            1. A energia solar funciona em dias nublados?
-        </button>
-        <div id="faq1" class="w3-hide w3-container w3-white w3-padding">
-            <p>Sim. A produção é menor do que em dias ensolarados, mas os painéis continuam gerando energia com a luz disponível.</p>
+    <footer id="contato" class="w3-container w3-padding-48 w3-dark-grey">
+        <div class="w3-content" style="max-width:1200px;">
+            <div class="w3-row-padding">
+                <div class="w3-half w3-margin-bottom">
+                    <div class="contact-card w3-padding-large w3-white">
+                        <h2 class="w3-text-green">Contato comercial</h2>
+                        <p><i class="fa-solid fa-envelope w3-text-green"></i> contato@ecotechsolar.com.br</p>
+                        <p><i class="fa-solid fa-phone w3-text-green"></i> (11) 4002-2026</p>
+                        <p><i class="fa-solid fa-location-dot w3-text-green"></i> Avenida Sustentável, 1500 - São Paulo/SP</p>
+                        <p><i class="fa-solid fa-clock w3-text-green"></i> Atendimento: segunda a sexta, das 8h às 18h</p>
+                    </div>
+                </div>
+                <div class="w3-half w3-margin-bottom">
+                    <div class="contact-card w3-padding-large w3-white">
+                        <h2 class="w3-text-green">Redes sociais</h2>
+                        <p>Siga a EcoTech Solar nos canais digitais:</p>
+                        <div class="w3-xlarge footer-links">
+                            <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                        <p class="w3-small w3-margin-top">Página onepage fictícia criada para a atividade do Fichário - Agenda 15 - Desenvolvimento de Sistemas I.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <button onclick="abrirFAQ('faq2')" class="w3-button w3-block w3-left-align w3-green w3-margin-top">
-            2. Quais são as etapas para instalar um sistema solar?
-        </button>
-        <div id="faq2" class="w3-hide w3-container w3-white w3-padding">
-            <p>As etapas principais são: análise de consumo, projeto técnico, aprovação, instalação dos painéis e ativação do sistema.</p>
-        </div>
-
-        <button onclick="abrirFAQ('faq3')" class="w3-button w3-block w3-left-align w3-green w3-margin-top">
-            3. A empresa oferece acompanhamento após a instalação?
-        </button>
-        <div id="faq3" class="w3-hide w3-container w3-white w3-padding">
-            <p>Sim. A EcoTech Solar acompanha a geração de energia e orienta o cliente sobre manutenção preventiva.</p>
-        </div>
-
-        <button onclick="abrirFAQ('faq4')" class="w3-button w3-block w3-left-align w3-green w3-margin-top">
-            4. Por que escolher energia solar?
-        </button>
-        <div id="faq4" class="w3-hide w3-container w3-white w3-padding">
-            <p>Porque é uma alternativa sustentável, ajuda a reduzir gastos com energia e contribui para a preservação ambiental.</p>
-        </div>
-    </section>
-
-    <!-- CONTATO / RODAPÉ -->
-    <footer id="contato" class="w3-container w3-padding-32 w3-dark-grey">
-        <h2>Contato comercial</h2>
-        <p><i class="fa-solid fa-envelope"></i> contato@ecotechsolar.com.br</p>
-        <p><i class="fa-solid fa-phone"></i> (11) 4002-2026</p>
-        <p><i class="fa-solid fa-location-dot"></i> Avenida Sustentável, 1500 - São Paulo/SP</p>
-
-        <div class="w3-xlarge">
-            <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram da empresa">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook da empresa">
-                <i class="fa-brands fa-facebook"></i>
-            </a>
-            <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn da empresa">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-        </div>
-
-        <p class="w3-small w3-margin-top">
-            Página fictícia criada para a atividade Fichário - Agenda 15 - Desenvolvimento de Sistemas I.
-        </p>
     </footer>
-
 </main>
 
 <script>
-    // Abre e fecha o menu lateral no celular
     function abrirMenu() {
-        document.getElementById("menuLateral").style.display = "block";
-        document.getElementById("overlayMenu").style.display = "block";
+        document.getElementById('menuLateral').style.display = 'block';
+        document.getElementById('overlayMenu').style.display = 'block';
     }
 
     function fecharMenu() {
-        document.getElementById("menuLateral").style.display = "none";
-        document.getElementById("overlayMenu").style.display = "none";
+        document.getElementById('menuLateral').style.display = 'none';
+        document.getElementById('overlayMenu').style.display = 'none';
     }
 
-    // Função simples para abrir e fechar as respostas do FAQ
     function abrirFAQ(id) {
         var elemento = document.getElementById(id);
-        if (elemento.className.indexOf("w3-show") == -1) {
-            elemento.className += " w3-show";
+        if (elemento.className.indexOf('w3-show') == -1) {
+            elemento.className += ' w3-show';
         } else {
-            elemento.className = elemento.className.replace(" w3-show", "");
+            elemento.className = elemento.className.replace(' w3-show', '');
         }
     }
 </script>
